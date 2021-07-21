@@ -1,0 +1,61 @@
+function playGame(){
+alert("Welcome to Rock/ Scissor / Paper Game |");
+var selectedOption=prompt("Please enter your option");
+console.log(selectedOption);
+  if(validateOption(selectedOption)){
+    var randomNumber= generateRandomNumber();
+    console.log(randomNumber);
+    var opponentOption=getMeRandomOption(randomNumber);
+    console.log("Opponent Option "+opponentOption);
+    compareWhoWon(selectedOption,opponentOption);
+    
+  }else{
+    alert("Your move isn't valid!");
+    return;
+  }
+}
+function validateOption(option){
+  if(option.toLowerCase()=="rock" ||option.toLowerCase()=="scissor" || option.toLowerCase()=="paper" ){
+    return true;
+  }
+  else{
+    return false;
+  }
+  
+}
+function generateRandomNumber(){
+  var randomNumber=Math.floor(Math.random() * 3);
+  return randomNumber;
+
+}
+function getMeRandomOption(randomNumber){
+ var opponentOption;
+  if(randomNumber==0){
+    opponentOption="rock";
+  }
+  else if(randomNumber==1){
+    opponentOption="scissor";
+  }
+  else if(randomNumber==2){
+    opponentOption="paper";
+  }
+  return opponentOption;
+}
+function compareWhoWon(userOption,opponentOption){
+  if(userOption==opponentOption) {
+						System.out.println("It's a tie!");
+					} 
+  else if((userOption=="rock" && opponentOption=="scissor")
+    ||( userOption=="scissor" && opponentOption=="paper ")
+  ||( userOption=="paper" && opponentOption=="rock")){
+      console.log("Won");
+						alert("You won!");
+					}
+  else {
+            console.log("Lost");
+						alert("You lost!");
+					}
+  
+}
+playGame();
+
